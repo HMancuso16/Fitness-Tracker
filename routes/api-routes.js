@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const db = require('../models');
 
-router.post('/api/workouts', (req, res) => {
-  db.Workout.create( req.body)
-    .then(dbWorkout)
+router.post("/api/workouts", ({ body }, res) => {  
+  Workout.create(body)
+  .then(dbWorkout => {
     res.json(dbWorkout)
-})
-    .catch(err => {
-      res.status(dbResult).json(err);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
 });
 
 router.put('/api/workouts/:id', (req, res) => {

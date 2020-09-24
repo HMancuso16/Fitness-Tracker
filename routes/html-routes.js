@@ -2,6 +2,7 @@ const router = require("express").Router();
 const path = require("path");
 
 router.get("/", (req, res) => {
+  console.log("GET /")
   res.sendFile(path.join(__dirname, "..public/index.html"));
 });
 
@@ -10,6 +11,7 @@ router.get("/excercise", (req, res) => {
 });
 
 router.get("/stats", (req, res) => {
+  console.log("GET /stats")
   res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
